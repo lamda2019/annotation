@@ -2,6 +2,7 @@ package com.wsc.config;
 
 import com.wsc.bean.Blue;
 import com.wsc.bean.Color;
+import com.wsc.bean.ColorFactoryBean;
 import com.wsc.condition.LinuxCondition;
 import com.wsc.condition.MyImportBeanDefinitionRegistrar;
 import com.wsc.condition.MyImportSelector;
@@ -40,6 +41,11 @@ public class MainConfigIOC2 {
     @Bean("linus")
     public Person person02(){
         return new Person("linus", 58);
+    }
+
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return new ColorFactoryBean();
     }
 
 }
