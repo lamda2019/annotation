@@ -17,7 +17,7 @@ public class IOCTest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
         String[] definitionNames = applicationContext.getBeanDefinitionNames();
         for (String name : definitionNames) {
-            System.out.println(name);
+            System.out.println("xml方式扫描组件："+name);
         }
     }
 
