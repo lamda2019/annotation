@@ -2,9 +2,14 @@ package com.wsc.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.stereotype.Controller;
 
 @Configuration
-@ComponentScan(value="com.wsc")
+@ComponentScan(value="com.wsc",excludeFilters= {
+        @ComponentScan.Filter(type= FilterType.ANNOTATION,classes={Controller.class})
+})
+
 public class MainConfigIOC {
 
 }
