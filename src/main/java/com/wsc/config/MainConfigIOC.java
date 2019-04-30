@@ -11,8 +11,7 @@ import org.springframework.stereotype.Controller;
 @ComponentScans(
         value = {
                 @ComponentScan(value="com.wsc",includeFilters = {
-                        @ComponentScan.Filter(type=FilterType.ANNOTATION,classes={Controller.class}),
-                        @ComponentScan.Filter(type=FilterType.ASSIGNABLE_TYPE,classes={PersonServicer.class}),
+                        @ComponentScan.Filter(type=FilterType.CUSTOM,classes={MyTypeFilter.class}),
                 },useDefaultFilters = false)
         }
 )
