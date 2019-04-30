@@ -22,8 +22,5 @@ public class MainConifgOfAutowired {
         return personDao;
     }
 
-    @Bean
-    public Boss boss(){
-    return new Boss(new Car());
-    }
+
 }
