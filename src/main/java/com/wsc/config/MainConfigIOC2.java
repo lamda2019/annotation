@@ -8,7 +8,8 @@ import com.wsc.bean.Person;
 
 @Configuration
 public class MainConfigIOC2 {
-    @Scope("prototype")
+   // @Scope("prototype")
+    @Scope
     @Bean("person")
     public Person person(){
         System.out.println("把Person添加到容器....");
