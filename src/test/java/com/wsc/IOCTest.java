@@ -18,6 +18,7 @@ public class IOCTest {
         String[] definitionNames = applicationContext.getBeanDefinitionNames();
         for (String name : definitionNames) {
             System.out.println("xml方式扫描组件："+name);
+
         }
     }
 
