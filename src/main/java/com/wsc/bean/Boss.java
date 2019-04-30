@@ -7,6 +7,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Boss {
 
+   @Autowired
+    public Boss(Car car){
+        this.car = car;
+        System.out.println("Boss...有参构造器");
+    }
+
 
     private Car car;
 
@@ -15,7 +21,7 @@ public class Boss {
         return car;
     }
 
-    @Autowired
+  //  @Autowired
     //标注在方法，Spring容器创建当前对象，就会调用方法，完成赋值；
     //方法使用的参数，自定义类型的值从ioc容器中获取
     public void setCar(Car car) {

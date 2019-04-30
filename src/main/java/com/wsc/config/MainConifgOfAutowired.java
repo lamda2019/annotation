@@ -1,6 +1,7 @@
 package com.wsc.config;
 
 import com.wsc.bean.Boss;
+import com.wsc.bean.Car;
 import com.wsc.dao.PersonDao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -23,6 +24,6 @@ public class MainConifgOfAutowired {
 
     @Bean
     public Boss boss(){
-    return new Boss();
+    return new Boss(new Car());
     }
 }
