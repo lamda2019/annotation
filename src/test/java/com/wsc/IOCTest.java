@@ -71,4 +71,16 @@ public class IOCTest {
         System.out.println("ioc容器创建完成....但是在未使用时该bean不会创建");
     }
 
+    /*@Lazy
+     *
+     * 使用懒加载，同时使用bean
+     */
+    @Test
+    public void testLazyUse(){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigIOC2.class);
+        System.out.println("ioc容器创建完成....");
+        Object bean = applicationContext.getBean("person");
+        Object bean2 = applicationContext.getBean("person");
+        System.out.println(bean == bean2);
+    }
 }
