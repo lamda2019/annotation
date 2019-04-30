@@ -1,5 +1,7 @@
 package com.wsc;
 
+import com.wsc.bean.Boss;
+import com.wsc.bean.Car;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import com.wsc.config.MainConifgOfAutowired;
@@ -18,6 +20,16 @@ public class IOCTest_Autowired {
         PersonDao bean = (PersonDao) applicationContext.getBean("personDao");
         System.out.println(bean);
 
+        applicationContext.close();
+    }
+
+    @Test
+    public void testMetheod(){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConifgOfAutowired.class);
+
+        Boss boss = applicationContext.getBean(Boss.class);
+        Car car = applicationContext.getBean(Car.class);
+        System.out.println("装配到Boss的bean:"+boss+" 和容器中的bean:"+car);
         applicationContext.close();
     }
 

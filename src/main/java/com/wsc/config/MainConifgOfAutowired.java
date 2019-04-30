@@ -1,5 +1,6 @@
 package com.wsc.config;
 
+import com.wsc.bean.Boss;
 import com.wsc.dao.PersonDao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,7 +10,7 @@ import org.springframework.context.annotation.Primary;
 
 @Configuration
 @ComponentScan({"com.wsc.servicer","com.wsc.dao",
-        "com.wsc.controller"})
+        "com.wsc.controller","com.wsc.bean"})
 public class MainConifgOfAutowired {
 
     @Primary
@@ -20,4 +21,8 @@ public class MainConifgOfAutowired {
         return personDao;
     }
 
+    @Bean
+    public Boss boss(){
+    return new Boss();
+    }
 }
