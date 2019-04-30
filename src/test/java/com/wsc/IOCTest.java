@@ -61,4 +61,14 @@ public class IOCTest {
         System.out.println("ioc容器创建完成....");
     }
 
+    /*@Lazy
+     *
+     * 使用懒加载，但未使用bean
+     */
+    @Test
+    public void testLazyNoUse(){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigIOC2.class);
+        System.out.println("ioc容器创建完成....但是在未使用时该bean不会创建");
+    }
+
 }
