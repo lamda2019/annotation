@@ -1,9 +1,8 @@
 package com.wsc.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
+import com.wsc.condition.LinuxCondition;
+import com.wsc.condition.WindowsCondition;
+import org.springframework.context.annotation.*;
 
 import com.wsc.bean.Person;
 
@@ -17,4 +16,25 @@ public class MainConfigIOC2 {
         System.out.println("把Person添加到容器....");
         return new Person("赤脚医生", 18);
     }
+
+
+    /**
+     * @Conditional({Condition}) ：
+     * 按照一定的条件进行判断，满足条件给容器中注册bean
+     *
+     * 如果系统是windows，给容器中注册("bill")
+     * 如果是linux系统，给容器中注册("linus")
+     */
+    @Conditional(WindowsCondition.class)
+    @Bean("bill")
+    public Person person01(){
+        return new Person("Bill Gates",65);
+    }
+
+    @Conditional(LinuxCondition.class)
+    @Bean("linus")
+    public Person person02(){
+        return new Person("linus", 58);
+    }
+
 }

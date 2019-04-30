@@ -1,12 +1,16 @@
 package com.wsc;
 
 
+import com.wsc.bean.Person;
 import com.wsc.config.MainConfigIOC;
 import com.wsc.config.MainConfigIOC2;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
+
+import java.util.Map;
 
 public class IOCTest {
 
@@ -82,5 +86,27 @@ public class IOCTest {
         Object bean = applicationContext.getBean("person");
         Object bean2 = applicationContext.getBean("person");
         System.out.println(bean == bean2);
+    }
+
+
+    /*@Condition
+     *
+     * 按条件加载bean
+     */
+    @Test
+    public void testCondition(){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigIOC2.class);
+        String[] namesForType = applicationContext.getBeanNamesForType(Person.class);
+        ConfigurableEnvironment environment = applicationContext.getEnvironment();
+        //动态获取环境变量的值；Windows 7
+        String property = environment.getProperty("os.name");
+        System.out.println(property);
+        for (String name : namesForType) {
+            System.out.println(name);
+        }
+
+        Map<String, Person> persons = applicationContext.getBeansOfType(Person.class);
+        System.out.println(persons);
+
     }
 }
