@@ -1,6 +1,7 @@
 package com.wsc;
 
 
+import com.wsc.bean.Blue;
 import com.wsc.bean.Person;
 import com.wsc.config.MainConfigIOC;
 import com.wsc.config.MainConfigIOC2;
@@ -108,5 +109,27 @@ public class IOCTest {
         Map<String, Person> persons = applicationContext.getBeansOfType(Person.class);
         System.out.println(persons);
 
+    }
+
+
+    /*@Import
+     *
+     * 导进组件
+     */
+    @Test
+    public void testImport(){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigIOC2.class);
+        printBeans(applicationContext);
+        Blue bean = applicationContext.getBean(Blue.class);
+        System.out.println(bean);
+
+
+    }
+
+    private void printBeans(AnnotationConfigApplicationContext applicationContext){
+        String[] definitionNames = applicationContext.getBeanDefinitionNames();
+        for (String name : definitionNames) {
+            System.out.println(name);
+        }
     }
 }

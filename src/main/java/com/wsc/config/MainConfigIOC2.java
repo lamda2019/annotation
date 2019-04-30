@@ -1,5 +1,7 @@
 package com.wsc.config;
 
+import com.wsc.bean.Blue;
+import com.wsc.bean.Color;
 import com.wsc.condition.LinuxCondition;
 import com.wsc.condition.WindowsCondition;
 import org.springframework.context.annotation.*;
@@ -7,6 +9,7 @@ import org.springframework.context.annotation.*;
 import com.wsc.bean.Person;
 
 @Configuration
+@Import(value = { Color.class , Blue.class})
 public class MainConfigIOC2 {
    // @Scope("prototype")
     @Scope
