@@ -51,5 +51,14 @@ public class IOCTest {
         System.out.println(bean == bean2);
     }
 
+    /*@Lazy
+     *
+     * 未使用懒加载
+     */
+    @Test
+    public void testNoLazy(){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigIOC2.class);
+        System.out.println("ioc容器创建完成....");
+    }
 
 }
