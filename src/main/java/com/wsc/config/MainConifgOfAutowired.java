@@ -2,6 +2,7 @@ package com.wsc.config;
 
 import com.wsc.bean.Boss;
 import com.wsc.bean.Car;
+import com.wsc.bean.Color;
 import com.wsc.dao.PersonDao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,6 +21,18 @@ public class MainConifgOfAutowired {
         PersonDao personDao = new PersonDao();
         personDao.setLable("2");
         return personDao;
+    }
+
+    /**
+     * @Bean标注的方法创建对象的时候，方法参数的值从容器中获取
+     * @param car
+     * @return
+     */
+    @Bean
+    public Color color(Car car){
+        Color color = new Color();
+        color.setCar(car);
+        return color;
     }
 
 
