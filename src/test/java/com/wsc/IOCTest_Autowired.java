@@ -33,4 +33,10 @@ public class IOCTest_Autowired {
         applicationContext.close();
     }
 
+    @Test
+    public void testAware(){
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConifgOfAutowired.class);
+
+        applicationContext.close();
+    }
 }
